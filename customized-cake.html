@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="customized_cake.css">
+    <link rel="shortcut icon" href="layered.png">
+    
+    <title>Layered</title>
+</head>
+<body>
+
+    <div class="box">
+        <div class="container">
+
+            <div class="header">
+                <header>Customized Cake</header>
+            </div>
+        
+
+            <br><br><br>
+
+            <div><p class="select-your-choice">Select your choice!</p></div>
+           
+        
+            <div class="flavors">
+                <li style="list-style: none;">
+                    <ul id="flavorselect" class="flavorselect">
+                        <label for="S1"><li class="flavor1"><input class="itemselect" type="checkbox" id="S1"/><a>Chocolate</a>
+                        </li></label>
+
+
+                        <label for="S2"><li class="flavor2"><input class="itemselect" type="checkbox" id="S2"/><a>Red Velvet</a>
+                        </li></label>
+                        
+                    </ul>
+                    <ul >
+                        <li class="cusflavor">Customized
+                            <ul id="flavorsize">
+                                <label for="I1"><li><input class="itemselect" type="checkbox" id="I1"/><a>7x2.5 </a></li></label>
+                                <label for="I2"><li><input class="itemselect" type="checkbox" id="I2"/><a>7x5 </a></li></label>
+                                <label for="I3"><li><input class="itemselect" type="checkbox" id="I3"/><a>8x5</a></li></label>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                </li>
+            </div>
+            <script>
+        // select the checkboxes in each list
+        const list1Checkboxes = document.querySelectorAll('#flavorselect input[type="checkbox"]');
+        const list2Checkboxes = document.querySelectorAll('#flavorsize input[type="checkbox"]');
+      
+        // initialize the checked states of each list to false
+        let list1Checked = false;
+        let list2Checked = false;
+      
+        // add event listeners to the checkboxes in each list
+        list1Checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('click', () => {
+            // if this checkbox was just checked
+            if (checkbox.checked) {
+              // uncheck any other checkboxes in list 1
+              list1Checkboxes.forEach((otherCheckbox) => {
+                if (otherCheckbox !== checkbox) {
+                  otherCheckbox.checked = false;
+                }
+              });
+              // update the checked state of list 1
+              list1Checked = true;
+              list2Checked = false;
+            } else {
+              // update the checked state of list 1
+              list1Checked = false;
+            }
+          });
+        });
+      
+        list2Checkboxes.forEach((checkbox) => {
+          checkbox.addEventListener('click', () => {
+            // if this checkbox was just checked
+            if (checkbox.checked) {
+              // uncheck any other checkboxes in list 2
+              list2Checkboxes.forEach((otherCheckbox) => {
+                if (otherCheckbox !== checkbox) {
+                  otherCheckbox.checked = false;
+                }
+              });
+              // update the checked state of list 2
+              list2Checked = true;
+              list1Checked = false;
+            } else {
+              // update the checked state of list 2
+              list2Checked = false;
+            }
+          });
+        });
+            </script>
+            <div class="upload">
+                <button type = "button" class = "btn-warning">
+                    <p class = "upload-button">Insert reference photo</p>
+                    <input type="file">
+                </button>
+            </div>
+
+            <div class="input-field">
+                <input type="text" class="input" placeholder="Input dedication" id="">
+            
+            </div>
+
+            <div class="input-field">
+                <input type="text" class="input" placeholder="Input additional details" id="">
+                
+            </div>
+
+            <br><br>
+
+            <div class="input-field">
+                <input type="submit" class="submit" value="Submit" id="">
+            </div>
+       
+
+        </div>
+    </div>
+    
+    
+
+</body>
+</html>
